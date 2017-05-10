@@ -32,8 +32,8 @@ def testTransform():
     mat2 = transformations.quaternion_matrix(quat)
     mat2[:3,3] = pos
 
-    print mat
-    print mat2
+    print(mat)
+    print(mat2)
     assert np.allclose(mat, mat2)
 
 
@@ -51,14 +51,14 @@ def testQuaternionInterpolate():
     q1 = transformations.random_quaternion()
     q2 = transformations.random_quaternion()
 
-    print q1
-    print q2
+    print(q1)
+    print(q2)
 
     for weight in np.linspace(0, 1, 10):
       qi = botpy.quat_interpolate(q1, q2, weight)
       qi2 = transformations.quaternion_slerp(q1, q2, weight)
 
-      print weight, qi, qi2
+      print(weight, qi, qi2)
       assert isQuatEqual(qi, qi2)
 
       if weight == 0.0:
@@ -80,8 +80,8 @@ def testEuler():
     rpy = transformUtils.rollPitchYawFromTransform(frame)
     rpy2 = transformations.euler_from_matrix(mat)
 
-    print rpy
-    print rpy2
+    print(rpy)
+    print(rpy2)
     assert np.allclose(rpy, rpy2)
 
 
@@ -97,8 +97,8 @@ def testEulerToFrame():
 
     mat2 = transformations.euler_matrix(rpy[0], rpy[1], rpy[2])
 
-    print mat
-    print mat2
+    print(mat)
+    print(mat2)
     assert np.allclose(mat, mat2)
 
 
@@ -117,8 +117,8 @@ def testEulerBotpy():
     frame = transformUtils.getTransformFromNumpy(mat)
     rpy3 = transformUtils.rollPitchYawFromTransform(frame)
 
-    print quat, quat2
-    print rpy, rpy2, rpy3
+    print(quat, quat2)
+    print(rpy, rpy2, rpy3)
 
     assert isQuatEqual(quat, quat2)
     assert np.allclose(rpy, rpy2)
@@ -133,5 +133,5 @@ if botpy:
     testQuaternionInterpolate()
     testEulerBotpy()
 else:
-    print 'skipped botpy tests because botpy module is not available'
+    print('skipped botpy tests because botpy module is not available')
 
