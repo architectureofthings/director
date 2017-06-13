@@ -12,11 +12,11 @@ install_ubuntu_deps_common()
     libglib2.0-dev \
     libqt4-dev \
     lsb-release \
-    python-coverage \
-    python-dev \
-    python-lxml \
-    python-numpy \
-    python-yaml \
+    python3-coverage \
+    python3-dev \
+    python3-lxml \
+    python3-numpy \
+    python3-yaml \
     wget \
     xvfb
 
@@ -24,16 +24,15 @@ install_ubuntu_deps_common()
     apt-get install -y \
       doxygen \
       graphviz \
-      python-pip \
-      python-sphinx
-    pip install sphinx-rtd-theme
+      python3-pip \
+      python3-sphinx
+    pip3 install sphinx-rtd-theme
   fi
 
   if [ "$MAKE_PACKAGE" = "ON" ]; then
     apt-get install -y \
       curl
   fi
-
 }
 
 install_ubuntu_deps()
@@ -66,10 +65,10 @@ install_osx_deps()
   brew install qt vtk7
   brew install doxygen graphviz
   brew install glib # for lcm
-  brew ls --versions python || brew install python
-  brew ls --versions numpy || brew install numpy || echo "error on brew install numpy"
+  brew ls --versions python3 || brew install python3
+  #brew ls --versions numpy || brew install numpy --with-python3 || echo "error on brew install numpy"
 
-  pip install pyyaml lxml Sphinx sphinx-rtd-theme coverage
+  pip3 install numpy pyyaml lxml Sphinx sphinx-rtd-theme coverage
 }
 
 
