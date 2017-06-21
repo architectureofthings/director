@@ -208,7 +208,7 @@ class OrbitTracker(PositionTracker):
 
     def setup(self):
         super(OrbitTracker, self).setup()
-        self.properties.addProperty('Orbit Time (s)', 20, attributes=propertyset.PropertyAttributes(minimum=1, maximum=100, singleStep=1))
+        self.properties.addProperty('Orbit Time (s)', float(20), attributes=propertyset.PropertyAttributes(minimum=1, maximum=100, singleStep=1))
 
     def update(self):
         super(OrbitTracker, self).update()
@@ -273,9 +273,9 @@ class SmoothFollowTracker(CameraTracker):
 
     def setup(self):
         self.properties.addProperty('Smooth Time (s)', 0.5, attributes=propertyset.PropertyAttributes(decimals=1, minimum=0.1, maximum=5, singleStep=0.1))
-        self.properties.addProperty('Distance (m)', 15, attributes=propertyset.PropertyAttributes(decimals=1, minimum=0.5, maximum=1000.0, singleStep=1))
-        self.properties.addProperty('Elevation (deg)', 10, attributes=propertyset.PropertyAttributes(minimum=-90, maximum=90, singleStep=2))
-        self.properties.addProperty('Azimuth (deg)', 0, attributes=propertyset.PropertyAttributes(minimum=-180, maximum=180, singleStep=10))
+        self.properties.addProperty('Distance (m)', float(15), attributes=propertyset.PropertyAttributes(decimals=1, minimum=0.5, maximum=1000.0, singleStep=1))
+        self.properties.addProperty('Elevation (deg)', float(10), attributes=propertyset.PropertyAttributes(minimum=-90, maximum=90, singleStep=2))
+        self.properties.addProperty('Azimuth (deg)', float(0), attributes=propertyset.PropertyAttributes(minimum=-180, maximum=180, singleStep=10))
 
     def reset(self):
         self.currentVelocity = np.array([0.0, 0.0, 0.0])
