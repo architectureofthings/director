@@ -68,6 +68,7 @@ qt_wrap_cpp(moc_srcs
   ddPropertiesPanel.h
   ddPythonEventFilter.h
   ddPythonManager.h
+  ddPythonUndoCommand.h
   ddQVTKWidgetView.h
   ddSignalMap.h
   ddSpreadsheetView.h
@@ -102,6 +103,7 @@ set(srcs
   ddPropertiesPanel.cpp
   ddPythonManager.cpp
   ddPythonQtWrapperFactory.cpp
+  ddPythonUndoCommand.cpp
   ddQVTKWidgetView.cpp
   ddSignalMap.cpp
   ddSpreadsheetView.cpp
